@@ -31,9 +31,36 @@ body{
     border-radius: 4px;
     background-color: rgb(124, 40, 40);
     color: rgb(240, 232, 210);
-    box-shadow: 1px 1px 1px white;
     border: white;
+     cursor: pointer;
+    box-shadow: 1px 1px 2px;
+}
 
+
+#add-book:active{
+    transform: translateY(2px);
+    box-shadow: none;
+    background-color: rgb(100, 34, 34);;
+}
+
+.hidden{
+    display: none;
+}
+
+#add-book-prompt{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    z-index: 3;
+}
+
+#add-book-prompt:active{
+    opacity: 1;
+    visibility: visible;
 }
 
 #hero{
@@ -64,7 +91,6 @@ body{
     border: solid black;
     border-left: solid black 6px;
     border-bottom: solid black 4px;
-    z-index: 1;
     background-color: rgb(176, 89, 39);
     width: 280px;
     height: 400px;

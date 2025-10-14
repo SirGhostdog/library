@@ -10,6 +10,10 @@ function Book(title, author, pages, read) {
     }
 }
 
+const myButton = document.getElementById('add-book')
+const addBookPrompt = document.getElementById('add-book-prompt')
+const submitButton = document.getElementById('submit-button')
+const cancelButton = document.getElementById('cancel-button')
 function addBookToLibrary() {
 ON BUTTON CLICK 
 ADD NEW BOOK TO LIBRARY
