@@ -48,6 +48,7 @@ body{
 }
 
 #add-book-prompt{
+    gap: 10px;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -56,11 +57,6 @@ body{
     padding: 20px;
     border: 1px solid #ccc;
     z-index: 3;
-}
-
-#add-book-prompt:active{
-    opacity: 1;
-    visibility: visible;
 }
 
 #hero{

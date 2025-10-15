@@ -14,18 +14,25 @@
     <div id="header">
         <div id="title">The Odin Library</div>
         <button id="add-book">+ Add Book</button>
-            <div id="add-book-prompt" class="hidden">
-                <p>Book Title</p>
-                <input type="text" id="prompt-text">
-                <p>Author:</p>
-                <input type="text" id="prompt-text">
-                <p>Pages:</p>
-                <input type="text" id="prompt-text">
-                <p>Read?</p>
-                <input type="checkbox" id="prompt-text">
-                <button id="submit-button">Submit</button>
+            <form id="add-book-prompt" class="hidden">
+
+                <label for="title">Book Title:</label>
+                <input type="text" id="form-1" name="title">
+
+                <label for="author">Author:</label>
+                <input type="text" id="form-2" name="author">
+
+                <label for="page-num">Pages:</label>
+                <input type="text" id="form-3" name="pages">
+
+                <label for="read-sts">Read?</label>
+                <input type="checkbox" id="form-4" name="read">
+
+                <button type="submit" id="submit-button">Submit</button>
+
                 <button id="cancel-button">Cancel</button>
-            </div>
+                
+            </form>
     </div>
     <div id="hero">
         <div id="hero-title">Your Books</div>
@@ -43,10 +50,7 @@
                         Read
                     </label>
                 </div>
-                
-
         </div>
     </div>
-   
 </body>
 </html>
