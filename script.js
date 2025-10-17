@@ -10,8 +10,6 @@ function Book(title, author, pages, read) {
     }
 };
 
-console.log(this.title)
-
 const addPrompt = document.getElementById('add-book-prompt');
 
 document.addEventListener('submit', function(event){
@@ -33,8 +31,6 @@ document.addEventListener('submit', function(event){
     }
 );
 
-console.log(myLibrary)
-
 
 document.getElementById('cancel-button').addEventListener("click", function(){
     addPrompt.style.display = "none";
@@ -47,14 +43,22 @@ document.getElementById('add-book').addEventListener("click", function(){
         }
 );
 
+const htmlLibrary = document.getElementById("books")
+const htmlBook = document.getElementById("book")
 const htmlTitle = document.getElementById("book-title")
 const htmlAuthor = document.getElementById("book-author")
 const htmlPages = document.getElementById("book-pages")
 const htmlRead = document.getElementById("read-checkbox")
 
 function addBookToLibrary(){
-    for (let lib of myLibrary) {
-        console.log(typeof (lib))
+    for (i = 0; i < 10; i++) {
+        if (myLibrary[i] == Object){
+            console.log("Good Job!")
+        } else{
+            console.log("you Suck!")
+        }
+
+    
     }
 }
 
