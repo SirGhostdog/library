@@ -3,10 +3,11 @@ const myLibrary = [];
 function Book(title, author, pages, read) {
     this.title = title;
     this.author = "by " + author;
-    this.pages = "p." + pages;
+    this.pages = "p. " + pages;
     this.read = read
     this.BookInfo = function() {
-        myLibrary.push(this.title, this.author, this.pages, this.read)
+        myLibrary.push(this)
+        addBookToLibrary();
     }
 };
 
@@ -44,22 +45,53 @@ document.getElementById('add-book').addEventListener("click", function(){
 );
 
 const htmlLibrary = document.getElementById("books")
-const htmlBook = document.getElementById("book")
-const htmlTitle = document.getElementById("book-title")
-const htmlAuthor = document.getElementById("book-author")
-const htmlPages = document.getElementById("book-pages")
-const htmlRead = document.getElementById("read-checkbox")
+    
 
 function addBookToLibrary(){
-    for (i = 0; i < 10; i++) {
-        if (myLibrary[i] == Object){
-            console.log("Good Job!")
-        } else{
-            console.log("you Suck!")
-        }
+    for (i = 0; i < myLibrary.length; i++) {
 
-    
+        const htmlBook = document.createElement("div")
+            htmlBook.setAttribute('id', 'book')
+            htmlLibrary.appendChild(htmlBook)
+            
+        const htmlBookHead = document.createElement("div")
+            htmlBookHead.setAttribute('id', 'book-header')
+            htmlBook.appendChild(htmlBookHead)
+
+            const htmlTitle = document.createElement("h4")
+                htmlTitle.setAttribute('id', 'book-title')
+                htmlBookHead.appendChild(htmlTitle)
+                htmlTitle.innerHTML = myLibrary.map(Book => Book.title);
+
+            const htmlAuthor = document.createElement("div")
+                htmlAuthor.setAttribute('id', 'book-author')
+                htmlBookHead.appendChild(htmlAuthor)
+                htmlAuthor.innerHTML = myLibrary.map(Book => Book.author)
+
+        const htmlBookFoot = document.createElement("div")
+            htmlBookFoot.setAttribute('id', 'book-footer')
+            htmlBook.appendChild(htmlBookFoot)
+
+            const htmlPages = document.createElement("div")
+                htmlPages.setAttribute('id', 'book-pages')
+                htmlBookFoot.appendChild(htmlPages)
+                htmlPages.innerHTML = myLibrary.map(Book => Book.pages)
+
+            const htmlRead = document.createElement("label")
+                htmlRead.setAttribute('id', 'read-checkbox')
+                htmlBookFoot.appendChild(htmlRead)
+
+                const htmlCheck = document.createElement("input")
+                    htmlCheck.setAttribute('type', 'checkbox')
+                    htmlCheck.setAttribute('id', 'myCheckbox')
+                    htmlRead.appendChild(htmlCheck)
+                    htmlCheck.innerHTML = myLibrary.map(Book => Book.read)
+
+                const htmlCheckStatus = document.createElement("span")
+                    htmlCheckStatus.setAttribute('id', 'checkbox')
+                    htmlRead.appendChild(htmlCheckStatus)
+
     }
 }
 
-addBookToLibrary();
+
