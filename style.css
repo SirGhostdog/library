@@ -84,6 +84,9 @@ body{
 }
 
 #book{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     border: solid black;
     border-left: solid black 6px;
     border-bottom: solid black 4px;
@@ -95,6 +98,7 @@ body{
 
 #book-header{
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
     padding-top: 20px;
@@ -108,6 +112,5 @@ body{
     display: flex;
     justify-content: space-between;
     padding-inline: 10px;
-    height: 67%;
     align-items: flex-end;
 }

@@ -6,6 +6,7 @@ function Book(title, author, pages, read) {
     this.pages = "p. " + pages;
     this.read = read
     this.BookInfo = function() {
+        console.log(this.read)
         myLibrary.push(this)
         addBookToLibrary();
     }
@@ -48,7 +49,7 @@ const htmlLibrary = document.getElementById("books")
     
 
 function addBookToLibrary(){
-    for (i = 0; i < myLibrary.length; i++) {
+    for (i = myLibrary.length - 1; i < myLibrary.length; i++) {
 
         const htmlBook = document.createElement("div")
             htmlBook.setAttribute('id', 'book')
@@ -61,12 +62,12 @@ function addBookToLibrary(){
             const htmlTitle = document.createElement("h4")
                 htmlTitle.setAttribute('id', 'book-title')
                 htmlBookHead.appendChild(htmlTitle)
-                htmlTitle.innerHTML = myLibrary.map(Book => Book.title);
+                htmlTitle.innerHTML = myLibrary[i].title
 
             const htmlAuthor = document.createElement("div")
                 htmlAuthor.setAttribute('id', 'book-author')
                 htmlBookHead.appendChild(htmlAuthor)
-                htmlAuthor.innerHTML = myLibrary.map(Book => Book.author)
+                htmlAuthor.innerHTML = myLibrary[i].author
 
         const htmlBookFoot = document.createElement("div")
             htmlBookFoot.setAttribute('id', 'book-footer')
@@ -75,7 +76,7 @@ function addBookToLibrary(){
             const htmlPages = document.createElement("div")
                 htmlPages.setAttribute('id', 'book-pages')
                 htmlBookFoot.appendChild(htmlPages)
-                htmlPages.innerHTML = myLibrary.map(Book => Book.pages)
+                htmlPages.innerHTML = myLibrary[i].pages
 
             const htmlRead = document.createElement("label")
                 htmlRead.setAttribute('id', 'read-checkbox')
@@ -85,11 +86,16 @@ function addBookToLibrary(){
                     htmlCheck.setAttribute('type', 'checkbox')
                     htmlCheck.setAttribute('id', 'myCheckbox')
                     htmlRead.appendChild(htmlCheck)
-                    htmlCheck.innerHTML = myLibrary.map(Book => Book.read)
+                    if (myLibrary[i].read == "on") {
+                        htmlCheck.checked = true
+                    } else {
+                        htmlCheck.checked = false
+                    }
 
                 const htmlCheckStatus = document.createElement("span")
                     htmlCheckStatus.setAttribute('id', 'checkbox')
                     htmlRead.appendChild(htmlCheckStatus)
+                    htmlCheckStatus.innerHTML = " Read"
 
     }
 }
